@@ -27,12 +27,12 @@ namespace BackgroundTasksQueue.Library.Models
         public string PrefixProcessCount { get; set; }
         public string EventFieldFront { get; set; }
         public string EventKeyBacksTasksProceed { get; set; }        
-        public TimeSpan EventKeyFromTimeDays { get; set; }
-        public TimeSpan EventKeyBackReadinessTimeDays { get; set; }
-        public TimeSpan EventKeyFrontGivesTaskTimeDays { get; set; }
-        public TimeSpan EventKeyBackServerMainTimeDays { get; set; }
-        public TimeSpan EventKeyBackServerAuxiliaryTimeDays { get; set; }
-        public TimeSpan PercentsKeysExistingTimeInMinutes { get; set; } // for Controller only
+        public double EventKeyFromTimeDays { get; set; }
+        public double EventKeyBackReadinessTimeDays { get; set; }
+        public double EventKeyFrontGivesTaskTimeDays { get; set; }
+        public double EventKeyBackServerMainTimeDays { get; set; }
+        public double EventKeyBackServerAuxiliaryTimeDays { get; set; }
+        public double PercentsKeysExistingTimeInMinutes { get; set; } // for Controller only
 
     }
 }
