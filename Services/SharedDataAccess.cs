@@ -36,14 +36,15 @@ namespace BackgroundTasksQueue.Library.Services
 
         private const string StartConstantKey = "constants";
         private const string StartConstantField = "all";
+        private readonly TimeSpan _startConstantKeyLifeTime = TimeSpan.FromDays(1);
         private const string CheckToken = "tt-tt-tt";
 
         public async Task SetStartConstants(EventKeyNames eventKeysSet, string checkTokenFetched)
         {
             if (checkTokenFetched == CheckToken)
             {
-                await _cache.SetHashedAsync<EventKeyNames>(StartConstantKey, StartConstantField, eventKeysSet,
-                    eventKeysSet.EventKeyBackReadinessTimeDays);
+                // установить своё время для ключа, можно вместе с названием ключа
+                await _cache.SetHashedAsync<EventKeyNames>(StartConstantKey, StartConstantField, eventKeysSet, _startConstantKeyLifeTime);
 
                 _logger.LogInformation(55050, "SetStartConstants set constants (EventKeyFrom for example = {0}) in key {1}.", eventKeysSet.EventKeyFrom, "constants");
             }
